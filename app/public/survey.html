@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Super Scientific Dating Survey</title>
+  <!-- Latest compiled and minified CSS & JS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+  <div class="container">
+    <div class="jumbotron">
+      <h1>Super Scientific Dating Survey</h1>
+      <h3>The best matchmaker in the galaxy!</h3>
+      <hr>
+      <a href="/"><button type="button" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-eye-open"></span> Home Page</button></a>
+    </div>
+    <div class="row">
+
+      <div class="col-lg-12">
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title"><strong>Take the Quiz</strong></h3>
+          </div>
+          <div class="panel-body">
+            <form method="POST" role="form">
+
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name">
+              </div>
+
+              <div class="form-group">
+                <label for="photo">Photo</label>
+                <input type="text" class="form-control" id="photo">
+              </div>
+
+              <div class="form-group">
+                <label for="question1">You prefer books over parties:</label>
+                <select class="form-control" id="question1">
+                  <option value=null></option>
+                  <option value=1>1 Not at All</option>
+                  <option value=2>2</option>
+                  <option value=3>3</option>
+                  <option value=4>4</option>
+                  <option value=5>5 Yes, all the way</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="question2">You want someone who can make plans for you:</label>
+                <select class="form-control" id="question2">
+                  <option value=null></option>
+                  <option value=1>1 Not at All</option>
+                  <option value=2>2</option>
+                  <option value=3>3</option>
+                  <option value=4>4</option>
+                  <option value=5>5 Yes, all the way</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="question3">Silence is golden, not awkward:</label>
+                <select class="form-control" id="question3">
+                  <option value=null></option>
+                  <option value=1>1 Not at All</option>
+                  <option value=2>2</option>
+                  <option value=3>3</option>
+                  <option value=4>4</option>
+                  <option value=5>5 Yes, all the way</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="question4">You prefer Star Wars to Star Trek:</label>
+                <select class="form-control" id="question4">
+                  <option value=null></option>
+                  <option value=1>1 Not at All</option>
+                  <option value=2>2</option>
+                  <option value=3>3</option>
+                  <option value=4>4</option>
+                  <option value=5>5 Yes, all the way</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="question5">You enjoy horror films:</label>
+                <select class="form-control" id="question5">
+                  <option value=null></option>
+                  <option value=1>1 Not at All</option>
+                  <option value=2>2</option>
+                  <option value=3>3</option>
+                  <option value=4>4</option>
+                  <option value=5>5 Yes, all the way</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="question6">You like to sing in the shower:</label>
+                <select class="form-control" id="question6">
+                  <option value=null></option>
+                  <option value=1>1 Not at All</option>
+                  <option value=2>2</option>
+                  <option value=3>3</option>
+                  <option value=4>4</option>
+                  <option value=5>5 Yes, all the way</option>
+                </select>
+              <div class="form-group">
+                <label for="question7">You question the very fabric of your reality:</label>
+                <select class="form-control" id="question7">
+                  <option value=null></option>
+                  <option value=1>1 Not at All</option>
+                  <option value=2>2</option>
+                  <option value=3>3</option>
+                  <option value=4>4</option>
+                  <option value=5>5 Yes, all the way</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="question8">You are familiar with the term "Simulation Theory":</label>
+                <select class="form-control" id="question8">
+                  <option value=null></option>
+                  <option value=1>1 Not at All</option>
+                  <option value=2>2</option>
+                  <option value=3>3</option>
+                  <option value=4>4</option>
+                  <option value=5>5 Yes, all the way</option>
+                </select>
+              </div>
+              
+            
+
+            </form>
+            <br>
+            <div class="text-right">
+              <button type="submit" class="btn btn-primary btn-md" id="add-btn"><span class="glyphicon glyphicon-fire"></span> Add to the Table stuff</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    // Question: What does this code do?
+    $("#add-btn").on("click", function(event) {
+      event.preventDefault();
+      var newUser = {
+        name: $("#name").val(),
+        photo: $("#photo").val(),
+        scores: [
+          $("#question1").val(), 
+          $("#question2").val(),
+          $("#question3").val(),
+          $("#question4").val(),
+          $("#question5").val(),
+          $("#question6").val(),
+          $("#question7").val(),
+          $("#question8").val(),
+          ]
+      };
+      //var scores = newUsers.scores.map(Number);
+      console.log(newUser);
+      
+      // Question: What does this code do??
+      $.post("/api/new", newUser)
+      .done(function(data) {
+        console.log(data);
+        alert("Tired of being alone...?");
+      });
+    });
+  </script>
+
+</body>
+</html>
