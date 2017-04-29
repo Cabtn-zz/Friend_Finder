@@ -179,7 +179,6 @@
       };
       $.post("/api/new", newUser)
       .done(function(data) {
-        alert("Tired of being alone...?");
       $("#matchName").text(data.name);
 	    $('#matchImg').attr("src", data.photo);
 		  $("#resultsModal").modal('toggle');
