@@ -51,7 +51,7 @@
               <div class="form-group">
                 <label for="question2">You want someone who can make plans for you:</label>
                 <select class="form-control" id="question2">
-                  <option value=null></option>
+                  <option value=null>Select and option</option>
                   <option value=1>1 Not at All</option>
                   <option value=2>2</option>
                   <option value=3>3</option>
@@ -62,7 +62,7 @@
               <div class="form-group">
                 <label for="question3">Silence is golden, not awkward:</label>
                 <select class="form-control" id="question3">
-                  <option value=null></option>
+                  <option value=null>Select and option</option>
                   <option value=1>1 Not at All</option>
                   <option value=2>2</option>
                   <option value=3>3</option>
@@ -73,7 +73,7 @@
               <div class="form-group">
                 <label for="question4">You prefer Star Wars to Star Trek:</label>
                 <select class="form-control" id="question4">
-                  <option value=null></option>
+                  <option value=null>Select and option</option>
                   <option value=1>1 Not at All</option>
                   <option value=2>2</option>
                   <option value=3>3</option>
@@ -84,7 +84,7 @@
               <div class="form-group">
                 <label for="question5">You enjoy horror films:</label>
                 <select class="form-control" id="question5">
-                  <option value=null></option>
+                  <option value=null>Select and option</option>
                   <option value=1>1 Not at All</option>
                   <option value=2>2</option>
                   <option value=3>3</option>
@@ -95,7 +95,7 @@
               <div class="form-group">
                 <label for="question6">You like to sing in the shower:</label>
                 <select class="form-control" id="question6">
-                  <option value=null></option>
+                  <option value=null>Select and option</option>
                   <option value=1>1 Not at All</option>
                   <option value=2>2</option>
                   <option value=3>3</option>
@@ -105,7 +105,7 @@
               <div class="form-group">
                 <label for="question7">You question the very fabric of your reality:</label>
                 <select class="form-control" id="question7">
-                  <option value=null></option>
+                  <option value=null>Select and option</option>
                   <option value=1>1 Not at All</option>
                   <option value=2>2</option>
                   <option value=3>3</option>
@@ -116,7 +116,7 @@
               <div class="form-group">
                 <label for="question8">You are familiar with the term "Simulation Theory":</label>
                 <select class="form-control" id="question8">
-                  <option value=null></option>
+                  <option value=null>Select and option</option>
                   <option value=1>1 Not at All</option>
                   <option value=2>2</option>
                   <option value=3>3</option>
@@ -154,10 +154,6 @@
           parseInt($("#question8").val()),
           ]
       };
-      //newUser.scores = parseInt(newUser.scores)
-      console.log("newUser: " + newUser.name);
-      
-      // Question: What does this code do??
       $.post("/api/new", newUser)
       .done(function(data) {
         alert("Tired of being alone...?");

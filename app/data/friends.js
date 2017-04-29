@@ -49,10 +49,10 @@ var differenceArray = [];
 const compareUsers = (currentUser) => {
     for (var i = 0; i < users.length; i++){
         if(users[i].name === currentUser){
-            yourArray = users[i].scores.reduce((a, b) => a + b, 0);
+            yourArray = users[i].scores.reduce((a, b) => parseInt(a) + parseInt(b), 0);
         }
         if(users[i].name !== currentUser){
-            var potentialFriend = parseInt(users[i].scores.reduce((a, b) => a + b, 0));
+            var potentialFriend = (users[i].scores.reduce((a, b) => parseInt(a) + parseInt(b), 0));
             comparisonArray.push(potentialFriend);
             console.log(comparisonArray);
         }
@@ -60,6 +60,7 @@ const compareUsers = (currentUser) => {
     compArrays(yourArray, comparisonArray);
      console.log(comparisonArray);
 };
+
 //This is probably not necessary, change this to compare the User value to the array. 
 const compArrays = (array1, array2) => {
     for (var i = 0; i < array2.length; i++){
