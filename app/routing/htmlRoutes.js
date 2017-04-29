@@ -1,6 +1,5 @@
 var path = require('path');
 
-//export this
 const htmlRoutes = (app, express) => {
     //Serving static files using express's middle-ware function. Have to use an absolute path for this. 
     app.use(express.static(path.join(__dirname, 'app/public')));
@@ -16,6 +15,4 @@ const htmlRoutes = (app, express) => {
     })
 }
 
-//exports.htmlRoutes = htmlRoutes;
-//if I am just exporting 1 function I can go ahead and use module.exports
 module.exports = htmlRoutes;

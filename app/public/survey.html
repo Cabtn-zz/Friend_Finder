@@ -7,10 +7,8 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <script src="https://code.jquery.com/jquery.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
 </head>
 <body>
-
   <div class="container">
     <div class="jumbotron">
       <h1>Super Scientific Dating Survey</h1>
@@ -126,9 +124,6 @@
                   <option value=5>5 Yes, all the way</option>
                 </select>
               </div>
-              
-            
-
             </form>
             <br>
             <div class="text-right">
@@ -140,32 +135,31 @@
       </div>
     </div>
   </div>
-
+  <script src="../data/friends.js"></script>
   <script type="text/javascript">
-    // Question: What does this code do?
+  
     $("#add-btn").on("click", function(event) {
       event.preventDefault();
       var newUser = {
         name: $("#name").val(),
         photo: $("#photo").val(),
         scores: [
-          $("#question1").val(), 
-          $("#question2").val(),
-          $("#question3").val(),
-          $("#question4").val(),
-          $("#question5").val(),
-          $("#question6").val(),
-          $("#question7").val(),
-          $("#question8").val(),
+          parseInt($("#question1").val()), 
+          parseInt($("#question2").val()),
+          parseInt($("#question3").val()),
+          parseInt($("#question4").val()),
+          parseInt($("#question5").val()),
+          parseInt($("#question6").val()),
+          parseInt($("#question7").val()),
+          parseInt($("#question8").val()),
           ]
       };
-      //var scores = newUsers.scores.map(Number);
-      console.log(newUser);
+      //newUser.scores = parseInt(newUser.scores)
+      console.log("newUser: " + newUser.name);
       
       // Question: What does this code do??
       $.post("/api/new", newUser)
       .done(function(data) {
-        console.log(data);
         alert("Tired of being alone...?");
       });
     });

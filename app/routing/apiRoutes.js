@@ -1,8 +1,5 @@
 const path = require('path');
 const{compareUsers, compArrays, yourMatch, users} = require('../data/friends.js');
-console.log('WE ARE IN HERE');
-
-
 
 const apiRoutes = (app, express) => {
     console.log('this is working');
@@ -12,11 +9,17 @@ const apiRoutes = (app, express) => {
         //DEFINE THIS SHIT
         return res.json(users)
     });
+    //we are not console.logging the right scores
+    //This is because the scores are FUCKING STRINGS FIX THIS
     app.post("/api/new", function(req, res){
         var newUser = req.body;
         users.push(newUser);
-        console.log(users)
-        return res.json(newUser);
+        res.json(newUser);
+        console.log(users);
+        console.log("NU: " + newUser.score);
+        console.log("Let's match " + newUser.name)
+        compareUsers(newUser.name);
+        console.log("user: " + users.score)
     })
 }
 

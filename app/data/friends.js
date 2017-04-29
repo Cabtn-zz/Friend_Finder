@@ -1,3 +1,4 @@
+
 const users = [{
     "name": "Abtin",
     "photo": "google.com", 
@@ -6,7 +7,10 @@ const users = [{
         4,
         3,
         2,
-        1
+        1,
+        5,
+        5,
+        5
     ]
 },{
     "name": "Savanna",
@@ -16,7 +20,11 @@ const users = [{
         4,
         3,
         1,
-        2
+        2,
+        5,
+        5,
+        5,
+
     ]
 },{
     "name": "Max",
@@ -27,6 +35,9 @@ const users = [{
         3,
         1,
         1,
+        2,
+        3,
+        1
     ]
 }];
 
@@ -34,18 +45,20 @@ var sumYourScore;
 var potentialFriend
 var comparisonArray = [];
 var differenceArray = [];
-
+//compare the users and the current users
 const compareUsers = (currentUser) => {
     for (var i = 0; i < users.length; i++){
         if(users[i].name === currentUser){
             yourArray = users[i].scores.reduce((a, b) => a + b, 0);
         }
         if(users[i].name !== currentUser){
-            var potentialFriend = users[i].scores.reduce((a, b) => a + b, 0);
+            var potentialFriend = parseInt(users[i].scores.reduce((a, b) => a + b, 0));
             comparisonArray.push(potentialFriend);
+            console.log(comparisonArray);
         }
     }
     compArrays(yourArray, comparisonArray);
+     console.log(comparisonArray);
 };
 //This is probably not necessary, change this to compare the User value to the array. 
 const compArrays = (array1, array2) => {
@@ -56,7 +69,7 @@ const compArrays = (array1, array2) => {
         var min = Math.min.apply( Math, differenceArray );
         yourMatch(min, yourArray);
 }
-
+//Match the result the difference to find your match
 const yourMatch = (min, currentUser) => {
     console.log("LOOKING FOR A MATCH")
     for (var i = 0; i< users.length; i++){
@@ -67,7 +80,4 @@ const yourMatch = (min, currentUser) => {
         }
     }
 }
-
-//compareUsers("Abtin");
-
 module.exports = {compareUsers, compArrays, yourMatch, users};

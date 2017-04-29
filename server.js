@@ -4,9 +4,8 @@ var path = require('path');
 var htmlRoutes = require("./app/routing/htmlRoutes.js");
 var apiRoutes = require("./app/routing/apiRoutes.js");
 
-const {users} = require("./app/routing/apiRoutes.js");
 const{compareUsers, compArrays, yourMatch} = require('./app/data/friends.js');
-compareUsers("Abtin");
+
 //variables to set up my server
 var app = express();
 var PORT = 3000;
@@ -25,5 +24,6 @@ htmlRoutes(app,express);
 apiRoutes(app, express);
 app.listen(PORT, function(){
     console.log("We are live");
+    
 })
 
