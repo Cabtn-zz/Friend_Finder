@@ -11,8 +11,8 @@ const apiRoutes = (app, express) => {
     app.post("/api/new", function(req, res){
         var newUser = req.body;
         users.push(newUser);
-        res.json(newUser);
         compareUsers(newUser.name);
+        res.send(compareUsers(newUser.name));
     })
 }
 

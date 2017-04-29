@@ -1,7 +1,7 @@
 
 const users = [{
     "name": "Abtin",
-    "photo": "google.com", 
+    "photo": "https://s-media-cache-ak0.pinimg.com/736x/d0/94/09/d094098bf36117151ddcdf1d268e5a9b.jpg", 
     "scores": [
         5,
         4,
@@ -14,7 +14,7 @@ const users = [{
     ]
 },{
     "name": "Savanna",
-    "photo": "google.com",
+    "photo": "https://am24.akamaized.net/tms/cnt/uploads/2017/04/IMG_0365.jpg",
     "scores": [
         4,
         4,
@@ -28,7 +28,7 @@ const users = [{
     ]
 },{
     "name": "Max",
-    "photo": "google.com",
+    "photo": "https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAj5AAAAJDgwYWRhMWI5LWE5NWMtNDFhNC04MTg1LWEyNzk2MTRjODRhYw.jpg",
     "scores": [
         1,
         2,
@@ -57,7 +57,7 @@ const compareUsers = (currentUser) => {
             console.log(comparisonArray);
         }
     }
-    compArrays(yourArray, comparisonArray);
+    return compArrays(yourArray, comparisonArray);
      console.log(comparisonArray);
 };
 
@@ -68,7 +68,7 @@ const compArrays = (array1, array2) => {
         differenceArray.push(absDiff);
     }
         var min = Math.min.apply( Math, differenceArray );
-        yourMatch(min, yourArray);
+        return yourMatch(min, yourArray);
 }
 //Match the result the difference to find your match
 const yourMatch = (min, currentUser) => {
@@ -77,7 +77,7 @@ const yourMatch = (min, currentUser) => {
         var match = currentUser - users[i].scores.reduce((a, b) => a + b, 0);
         match = Math.abs(match);
         if(match === min){
-            console.log("MATCH: " + users[i].name);
+            return users[i];
         }
     }
 }
