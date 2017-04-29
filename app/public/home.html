@@ -7,6 +7,7 @@
 
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery.js"></script>
 	<link rel="stylesheet" type="text/css" href="stylesheet.css">
 
 </head>
@@ -22,7 +23,7 @@
 
 			<div class="text-center">
 				<a href="/survey"><button type="button" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-list-alt"></span> Take the Survey</button></a>
-				<a href=#><button type="button" class="btn btn-lg btn-danger"><span class="glyphicon glyphicon-credit-card"></span> Murder the innocent</button></a>
+				<a href=#><button type="button" id="really" class="btn btn-lg btn-danger"><span class="glyphicon glyphicon-credit-card"></span> Murder the innocent</button></a>
 			</div>
 
 		</div>
@@ -36,4 +37,10 @@
 	</div>
 </body>
 </html>
+<script>
+$("#really").on("click", function(event) {
+    event.preventDefault();
+	alert("Really?")
+    });
+  </script>
 
